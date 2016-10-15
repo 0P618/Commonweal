@@ -42,7 +42,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="@dimen/little_space"
-            android:text="官方"
+            android:text="公司"
             android:textColor="@color/colorPrimary"
             android:textSize="15sp" />
 
@@ -53,7 +53,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="@dimen/little_space"
-            android:text="项目"
+            android:text="团体"
             android:textColor="@color/ordinary_s"
             android:textSize="15sp" />
 
