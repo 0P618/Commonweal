@@ -20,6 +20,7 @@
             android:id="@+id/iv_good_avatar"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_toRightOf="@id/civ_avatar"
             android:scaleType="centerCrop" />
 
         <TextView
@@ -27,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_space"
-            android:layout_toRightOf="@id/civ_avatar"
+            android:layout_toRightOf="@id/iv_good_avatar"
             android:text="名字" />
 
         <TextView
@@ -35,7 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_name"
-            android:layout_toRightOf="@id/civ_avatar"
+            android:layout_marginLeft="@dimen/normal_space"
+            android:layout_toRightOf="@id/iv_good_avatar"
             android:text="出价公益币200" />
     </RelativeLayout>
 </LinearLayout>

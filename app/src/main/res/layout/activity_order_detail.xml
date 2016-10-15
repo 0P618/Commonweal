@@ -149,15 +149,15 @@
     <TextView
         android:id="@+id/btn_express"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="@dimen/normal_space"
         android:background="@drawable/default_fill"
         android:gravity="center"
-        android:padding="@dimen/normal_space"
+        android:padding="5dp"
         android:text="查看快递"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_big_little"
-        android:visibility="gone" />
+         />
 
     <TextView
         android:id="@+id/btn_pay"
