@@ -42,7 +42,6 @@ public class MySellGoodAdapter extends BaseAdapter {
     private Spinner mSpinner;
     private EditText mText; //单号
     private List<String> mStrings;
-    private boolean isDel;
     private String shipperCode;
 
     public MySellGoodAdapter(Context context, List<Good> list) {
@@ -118,10 +117,18 @@ public class MySellGoodAdapter extends BaseAdapter {
 
             //确认发货按钮监听事件
             //弹出对话框
+//            setListen();
+        }
+
+        /**
+         * 设置按钮的监听事件
+         * @param flag false--发货，true--删除
+         */
+        private void setListen(final boolean flag) {
             mBtnShip.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (isDel) {
+                    if (flag) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
                         builder.setTitle("提示");
                         builder.setMessage("你确定要删除这件物品吗？");
@@ -186,6 +193,8 @@ public class MySellGoodAdapter extends BaseAdapter {
         private void initData(int pos) {
             mPos = pos;
             String str = "未知";
+            mBtnShip.setVisibility(View.GONE);
+            mTvReceiveAddress.setVisibility(View.GONE);
             int flag = mList.get(pos).getGood_Status();
             if (flag == 0) {
                 str = "物品拍卖失败！";
@@ -199,12 +208,15 @@ public class MySellGoodAdapter extends BaseAdapter {
                 str = "拍卖成功，等待发货";
                 addStrings();
                 showAddressDialog(pos);
+                mBtnShip.setText("确认发货");
+                setListen(false);
                 mTvReceiveAddress.setVisibility(View.VISIBLE);
                 mBtnShip.setVisibility(View.VISIBLE);
             } else if (flag == 3) {
                 str = "已发货，等待签收";
                 addStrings();
                 mBtnShip.setText("修改物流信息");
+                setListen(false);
                 mBtnShip.setVisibility(View.VISIBLE);
             } else if (flag == 4) {
                 str = "已签收，订单完成！";
@@ -213,7 +225,7 @@ public class MySellGoodAdapter extends BaseAdapter {
             mTvStatus.setText("状态：" + str + "(现在价格:" + mList.get(pos).getGood_NowCoin() + ")");
             if (!mList.get(pos).getFirstDeposit()) {
                 mBtnShip.setText("删除物品");
-                isDel = true;
+                setListen(true);
                 mBtnShip.setVisibility(View.VISIBLE);
             }
 
