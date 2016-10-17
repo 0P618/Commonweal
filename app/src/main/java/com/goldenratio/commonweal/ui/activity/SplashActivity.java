@@ -29,7 +29,7 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        MobclickAgent. startWithConfigure(new MobclickAgent.UMAnalyticsConfig(this,"57da0a3267e58e5847000c6e","wandoujia"));
+        MobclickAgent.startWithConfigure(new MobclickAgent.UMAnalyticsConfig(this, "58042d5067e58e8429000357", String.valueOf(R.string.channel_dev)));
         initData();
         isFirst();
 //        startMain();
@@ -41,13 +41,13 @@ public class SplashActivity extends BaseActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                intent = new Intent(SplashActivity.this,MainActivity.class);
+                intent = new Intent(SplashActivity.this, MainActivity.class);
                 intent.putExtra("help", (Serializable) mHelpLlist);
                 intent.putExtra("top", (Serializable) mHelpTopList);
                 startActivity(intent);
                 finish();
             }
-        },3000);
+        }, 3000);
     }
 
     /**
@@ -84,25 +84,25 @@ public class SplashActivity extends BaseActivity {
 
     public void isFirst() {
         boolean isFirst;
-        SharedPreferences pref = getSharedPreferences("first",Activity.MODE_PRIVATE);
-        isFirst = pref.getBoolean("status",true);
-        if (isFirst){
+        SharedPreferences pref = getSharedPreferences("first", Activity.MODE_PRIVATE);
+        isFirst = pref.getBoolean("status", true);
+        if (isFirst) {
             SharedPreferences.Editor editor = pref.edit();
-            editor.putBoolean("status",false);
+            editor.putBoolean("status", false);
             editor.apply();
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    intent = new Intent(SplashActivity.this,MainActivity.class);
+                    intent = new Intent(SplashActivity.this, MainActivity.class);
                     intent.putExtra("help", (Serializable) mHelpLlist);
                     intent.putExtra("top", (Serializable) mHelpTopList);
-                    Intent intent1 = new Intent(SplashActivity.this,GuideActivity.class);
+                    Intent intent1 = new Intent(SplashActivity.this, GuideActivity.class);
                     startActivity(intent1);
                 }
-            },3000);
+            }, 3000);
 
-        }else {
+        } else {
             startMain();
         }
     }

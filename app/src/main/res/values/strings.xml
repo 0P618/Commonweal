@@ -77,4 +77,10 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="viewpager_indicator">%1$d/%2$d</string>
+
+
+
+    <string name="channel_sdbi">sdbi</string>
+    <string name="channel_match">softqilu</string>
+    <string name="channel_dev">dev</string>
 </resources>

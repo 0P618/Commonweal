@@ -263,9 +263,9 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="57da0a3267e58e5847000c6e" />
+            android:value="58042d5067e58e8429000357" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Wandoujia" />
+            android:value="@string/channel_dev" />
     </application>
 </manifest>
